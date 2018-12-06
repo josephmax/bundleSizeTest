@@ -36,19 +36,17 @@ module.exports = {
     resolve: {
         extensions: ["*", ".js", ".jsx"]
     },
-    output: {
-        filename: "bundle.js"
-    },
     optimization: {
         runtimeChunk: true,
         splitChunks: {
-            maxAsyncRequests: 5,
+            maxInitialRequests: 6,
             cacheGroups: {
-                vendors: {
-                    test: /node_modules/,
-                    minChunks: 2,
-                    minSize: 150000,
-                    maxSize: 300000
+                commons: {
+                    name: 'common',
+                    chunks: 'initial',
+                    minChunks: 1,
+                    minSize: 50000,
+                    maxSize: 200000,
                 }
             }
         }
