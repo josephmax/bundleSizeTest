@@ -7,10 +7,27 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(js|jsx)$/,
+                test: /\.jsx?$/,
                 exclude: /(node_modules|bower_components)/,
                 loader: "babel-loader",
-            }, {
+            }, 
+            {
+                test: /\.less$/,
+                include: /node_modules/,
+                use: [
+                    {
+                        loader: 'style-loader' // creates style nodes from JS strings
+                    },
+                    {
+                        loader: 'css-loader' // translates CSS into CommonJS
+                    },
+                    {
+                        loader: 'less-loader',  // compiles Less to CSS
+                        options: { javascriptEnabled: true }
+                    }
+                ]
+            },
+            {
                 test: /\.css$/,
                 use: ["style-loader", "css-loader"]
             }
