@@ -1,8 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { Button } from 'antd'
 
 function APP () {
-    return <div>hello ant</div>
+    return <Button>hello ant</Button>
 }
 
 ReactDOM.render(
